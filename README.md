@@ -47,3 +47,9 @@ How to use
 ----------
 
 Follow the instructions on our support page [Taiga.io Support > Contrib Plugins > HipChat integration](https://taiga.io/support/hipchat-integration/ "Taiga.io Support > Contrib Plugins > HipChat integration")
+
+
+New change
+----------
+for connect names in taiga with names in hipchat
+create file local.py from local.py.dest in folder back/taiga_contrib_hipchat
