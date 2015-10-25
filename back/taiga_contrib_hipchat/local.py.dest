@@ -1,0 +1,2 @@
+HIPCHAT_NAMES = {}
+HIPCHAT_NAMES['admin'] = 'Кирилл'

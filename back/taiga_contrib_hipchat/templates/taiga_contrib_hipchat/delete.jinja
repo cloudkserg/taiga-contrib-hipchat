@@ -1,3 +1,4 @@
+{% include 'taiga_contrib_hipchat/owner_tags.jinja' %}
 {% if obj_type == "issue" %}
     {{ _("Deleted Issue: ") }} #{{obj.ref}}: {{obj.subject}}
 {% elif obj_type == "task" %}

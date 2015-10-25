@@ -1,3 +1,4 @@
+{% include 'taiga_contrib_hipchat/owner_tags.jinja' %}
 {% if obj_type == "issue" %}
     {% set final_url = resolve_front_url("issue", obj.project.slug, obj.ref) %}
     {{ _("Changed Issue: ") }} <a href="{{final_url}}">#{{obj.ref}}: {{obj.subject}}</a>

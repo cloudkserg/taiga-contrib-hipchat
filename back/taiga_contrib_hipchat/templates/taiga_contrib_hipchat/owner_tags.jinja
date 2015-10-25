@@ -1,0 +1,9 @@
+@{{ obj.owner.username|get_hipchat_name }}
+
+{% if obj.assigned_to %}
+    @{{ obj.assigned_to.username|get_hipchat_name }}
+{% endif %}
+
+{% for watcher in obj.watchers.all() %}
+    @{{ watcher.username|get_hipchat_name }}
+{% endfor %}

@@ -19,13 +19,26 @@ import logging
 
 from django.conf import settings
 from django.template import loader, Context
+from django_jinja import library
+from django.template.defaultfilters import stringfilter
 
 from taiga.base.api.renderers import UnicodeJSONRenderer
 from taiga.base.utils.db import get_typename_for_model_instance
 from taiga.celery import app
+from jinja2 import Environment
 
+from. import local
 
 logger = logging.getLogger(__name__)
+
+def get_hipchat_name(name):
+    if name in local.HIPCHAT_NAMES:
+        return local.HIPCHAT_NAMES[name]
+    return name
+
+register = library.Library()
+register.filter('get_hipchat_name', get_hipchat_name)
+
 
 
 def _get_type(obj):
@@ -125,6 +138,8 @@ def create_hipchathook(url, notify, notify_config, obj):
         "color": "green",
     }
     _send_request(url, notify, data)
+
+    
 
 
 @app.task
